@@ -1,0 +1,42 @@
+<suite name="AutomationSuite">
+<listeners>
+        <listener class-name="common.TestListener"/>
+    </listeners>
+
+    <!-- SMOKE tests -->
+    <test name="SmokeTests">
+        <groups>
+            <run>
+                <include name="smoke"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="tests.AdminTest2"/>
+        </classes>
+    </test>
+
+    <!-- SANITY tests -->
+    <test name="SanityTests">
+        <groups>
+            <run>
+                <include name="sanity"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="tests.AdminTest2"/>
+        </classes>
+    </test>
+
+    <!-- REGRESSION tests -->
+    <test name="RegressionTests">
+        <groups>
+            <run>
+                <include name="regression"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="tests.AdminTest2"/>
+        </classes>
+    </test>
+
+</suite>

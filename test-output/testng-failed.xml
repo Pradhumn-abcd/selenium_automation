@@ -6,12 +6,11 @@
       <class name="tests.AdminTest2">
         <methods>
           <include name="deleteUserFunctionality"/>
+          <include name="bm"/>
           <include name="close"/>
-          <include name="createAdminUser"/>
           <include name="setUp"/>
-          <include name="updateUserFunctionality"/>
-          <include name="searchUserFunctionality"/>
           <include name="setUpLogin"/>
+          <include name="captureScreenshot"/>
         </methods>
       </class> <!-- tests.AdminTest2 -->
     </classes>
