@@ -1,203 +1,281 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
+<testng-results ignored="0" total="3" passed="0" failed="0" skipped="3">
   <reporter-output>
-    <line>
-      <![CDATA[//span[text()='Admin'] tab clicked successfully.]]>
-    </line>
-    <line>
-      <![CDATA[Clicked Add button]]>
-    </line>
-    <line>
-      <![CDATA[Opened User Role dropdown]]>
-    </line>
-    <line>
-      <![CDATA[Selected Admin role]]>
-    </line>
-    <line>
-      <![CDATA[Entered Employee: T]]>
-    </line>
-    <line>
-      <![CDATA[Opened Status dropdown]]>
-    </line>
-    <line>
-      <![CDATA[Selected Enabled status]]>
-    </line>
-    <line>
-      <![CDATA[Entered Username: UserubE9F]]>
-    </line>
-    <line>
-      <![CDATA[Entered Password]]>
-    </line>
-    <line>
-      <![CDATA[Entered Confirm Password]]>
-    </line>
-    <line>
-      <![CDATA[Clicked Save]]>
-    </line>
-    <line>
-      <![CDATA[Entered Username in search field]]>
-    </line>
-    <line>
-      <![CDATA[Clicked on Search button]]>
-    </line>
-    <line>
-      <![CDATA[Clicked on Edit button]]>
-    </line>
-    <line>
-      <![CDATA[Updated Username to: UserubE9F]]>
-    </line>
-    <line>
-      <![CDATA[Clicked on Save button after update]]>
-    </line>
   </reporter-output>
-  <suite started-at="2025-08-31T15:43:19 MST" name="Default suite" finished-at="2025-08-31T15:44:20 MST" duration-ms="61066">
+  <suite started-at="2025-09-02T07:03:31 MST" name="Default suite" finished-at="2025-09-02T07:03:32 MST" duration-ms="332">
     <groups>
       <group name="regression">
-        <method signature="AdminTest2.createAdminUser()[pri:1, instance:tests.AdminTest2@49e5f737]" name="createAdminUser" class="tests.AdminTest2"/>
-        <method signature="AdminTest2.updateUserFunctionality()[pri:3, instance:tests.AdminTest2@49e5f737]" name="updateUserFunctionality" class="tests.AdminTest2"/>
+        <method signature="AdminTest2.createAdminUser()[pri:1, instance:tests.AdminTest2@340b9973]" name="createAdminUser" class="tests.AdminTest2"/>
+        <method signature="AdminTest2.updateUserFunctionality()[pri:3, instance:tests.AdminTest2@340b9973]" name="updateUserFunctionality" class="tests.AdminTest2"/>
       </group> <!-- regression -->
       <group name="smoke">
-        <method signature="AdminTest2.createAdminUser()[pri:1, instance:tests.AdminTest2@49e5f737]" name="createAdminUser" class="tests.AdminTest2"/>
-        <method signature="AdminTest2.searchUserFunctionality()[pri:2, instance:tests.AdminTest2@49e5f737]" name="searchUserFunctionality" class="tests.AdminTest2"/>
+        <method signature="AdminTest2.createAdminUser()[pri:1, instance:tests.AdminTest2@340b9973]" name="createAdminUser" class="tests.AdminTest2"/>
+        <method signature="AdminTest2.searchUserFunctionality()[pri:2, instance:tests.AdminTest2@340b9973]" name="searchUserFunctionality" class="tests.AdminTest2"/>
       </group> <!-- smoke -->
     </groups>
-    <test started-at="2025-08-31T15:43:19 MST" name="Default test" finished-at="2025-08-31T15:44:20 MST" duration-ms="61066">
+    <test started-at="2025-09-02T07:03:31 MST" name="Default test" finished-at="2025-09-02T07:03:32 MST" duration-ms="332">
       <class name="tests.AdminTest2">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.AdminTest2@49e5f737]" started-at="2025-08-31T15:42:55 MST" name="setUp" finished-at="2025-08-31T15:43:19 MST" duration-ms="23776" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.AdminTest2@340b9973]" started-at="2025-09-02T07:01:48 MST" name="setUp" finished-at="2025-09-02T07:03:31 MST" duration-ms="102673" status="FAIL">
+          <exception class="org.openqa.selenium.NoSuchWindowException">
+            <message>
+              <![CDATA[no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=139.0.7258.155)
+Build info: version: '4.21.0', revision: '79ed462ef4'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '23.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [a14437ed68832e5dd7a4a36ddbb6794f, get {url=https://opensource-demo.orangehrmlive.com/}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 139.0.7258.155, chrome: {chromedriverVersion: 139.0.7258.154 (9e0d6b2b47f..., userDataDir: C:\Users\USER\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51420}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51420/devtoo..., se:cdpVersion: 139.0.7258.155, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: a14437ed68832e5dd7a4a36ddbb6794f]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=139.0.7258.155)
+Build info: version: '4.21.0', revision: '79ed462ef4'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '23.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [a14437ed68832e5dd7a4a36ddbb6794f, get {url=https://opensource-demo.orangehrmlive.com/}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 139.0.7258.155, chrome: {chromedriverVersion: 139.0.7258.154 (9e0d6b2b47f..., userDataDir: C:\Users\USER\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51420}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51420/devtoo..., se:cdpVersion: 139.0.7258.155, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: a14437ed68832e5dd7a4a36ddbb6794f
+at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)
+at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:518)
+at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:300)
+at common.BaseSetup.setUp(BaseSetup.java:94)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:358)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchWindowException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method is-config="true" signature="setUpLogin()[pri:0, instance:tests.AdminTest2@49e5f737]" started-at="2025-08-31T15:43:19 MST" name="setUpLogin" finished-at="2025-08-31T15:43:27 MST" duration-ms="7959" status="PASS">
+        <test-method is-config="true" signature="setUpLogin()[pri:0, instance:tests.AdminTest2@340b9973]" started-at="2025-09-02T07:03:31 MST" name="setUpLogin" finished-at="2025-09-02T07:03:31 MST" duration-ms="0" status="SKIP">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpLogin -->
-        <test-method is-config="true" signature="bm(java.lang.reflect.Method)[pri:0, instance:tests.AdminTest2@49e5f737]" started-at="2025-08-31T15:43:27 MST" name="bm" finished-at="2025-08-31T15:43:27 MST" duration-ms="70" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void tests.AdminTest2.createAdminUser() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
+        <test-method is-config="true" signature="bm(java.lang.reflect.Method)[pri:0, instance:tests.AdminTest2@340b9973]" started-at="2025-09-02T07:03:32 MST" name="bm" finished-at="2025-09-02T07:03:32 MST" duration-ms="0" status="SKIP">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- bm -->
-        <test-method signature="createAdminUser()[pri:1, instance:tests.AdminTest2@49e5f737]" started-at="2025-08-31T15:43:27 MST" name="createAdminUser" finished-at="2025-08-31T15:44:02 MST" duration-ms="34578" status="PASS">
+        <test-method signature="createAdminUser()[pri:1, instance:tests.AdminTest2@340b9973]" started-at="2025-09-02T07:03:32 MST" name="createAdminUser" finished-at="2025-09-02T07:03:32 MST" duration-ms="1" status="SKIP">
+          <exception class="org.openqa.selenium.NoSuchWindowException">
+            <message>
+              <![CDATA[no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=139.0.7258.155)
+Build info: version: '4.21.0', revision: '79ed462ef4'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '23.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [a14437ed68832e5dd7a4a36ddbb6794f, get {url=https://opensource-demo.orangehrmlive.com/}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 139.0.7258.155, chrome: {chromedriverVersion: 139.0.7258.154 (9e0d6b2b47f..., userDataDir: C:\Users\USER\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51420}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51420/devtoo..., se:cdpVersion: 139.0.7258.155, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: a14437ed68832e5dd7a4a36ddbb6794f]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=139.0.7258.155)
+Build info: version: '4.21.0', revision: '79ed462ef4'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '23.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [a14437ed68832e5dd7a4a36ddbb6794f, get {url=https://opensource-demo.orangehrmlive.com/}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 139.0.7258.155, chrome: {chromedriverVersion: 139.0.7258.154 (9e0d6b2b47f..., userDataDir: C:\Users\USER\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51420}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51420/devtoo..., se:cdpVersion: 139.0.7258.155, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: a14437ed68832e5dd7a4a36ddbb6794f
+at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)
+at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:518)
+at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:300)
+at common.BaseSetup.setUp(BaseSetup.java:94)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:358)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchWindowException -->
           <reporter-output>
-            <line>
-              <![CDATA[//span[text()='Admin'] tab clicked successfully.]]>
-            </line>
-            <line>
-              <![CDATA[Clicked Add button]]>
-            </line>
-            <line>
-              <![CDATA[Opened User Role dropdown]]>
-            </line>
-            <line>
-              <![CDATA[Selected Admin role]]>
-            </line>
-            <line>
-              <![CDATA[Entered Employee: T]]>
-            </line>
-            <line>
-              <![CDATA[Opened Status dropdown]]>
-            </line>
-            <line>
-              <![CDATA[Selected Enabled status]]>
-            </line>
-            <line>
-              <![CDATA[Entered Username: UserubE9F]]>
-            </line>
-            <line>
-              <![CDATA[Entered Password]]>
-            </line>
-            <line>
-              <![CDATA[Entered Confirm Password]]>
-            </line>
-            <line>
-              <![CDATA[Clicked Save]]>
-            </line>
           </reporter-output>
         </test-method> <!-- createAdminUser -->
-        <test-method is-config="true" signature="captureScreenshot(org.testng.ITestResult)[pri:0, instance:tests.AdminTest2@49e5f737]" started-at="2025-08-31T15:44:02 MST" name="captureScreenshot" finished-at="2025-08-31T15:44:02 MST" duration-ms="2" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=createAdminUser status=SUCCESS method=AdminTest2.createAdminUser()[pri:1, instance:tests.AdminTest2@49e5f737] output=//span[text()='Admin'] tab clicked successfully.]]]>
-              </value>
-            </param>
-          </params>
+        <test-method is-config="true" signature="captureScreenshot(org.testng.ITestResult)[pri:0, instance:tests.AdminTest2@340b9973]" started-at="2025-09-02T07:03:32 MST" name="captureScreenshot" finished-at="2025-09-02T07:03:32 MST" duration-ms="0" status="SKIP">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- captureScreenshot -->
-        <test-method is-config="true" signature="bm(java.lang.reflect.Method)[pri:0, instance:tests.AdminTest2@49e5f737]" started-at="2025-08-31T15:44:02 MST" name="bm" finished-at="2025-08-31T15:44:02 MST" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void tests.AdminTest2.searchUserFunctionality() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
+        <test-method is-config="true" signature="bm(java.lang.reflect.Method)[pri:0, instance:tests.AdminTest2@340b9973]" started-at="2025-09-02T07:03:32 MST" name="bm" finished-at="2025-09-02T07:03:32 MST" duration-ms="0" status="SKIP">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- bm -->
-        <test-method signature="searchUserFunctionality()[pri:2, instance:tests.AdminTest2@49e5f737]" started-at="2025-08-31T15:44:02 MST" name="searchUserFunctionality" finished-at="2025-08-31T15:44:08 MST" duration-ms="5877" status="PASS">
+        <test-method signature="searchUserFunctionality()[pri:2, instance:tests.AdminTest2@340b9973]" started-at="2025-09-02T07:03:32 MST" name="searchUserFunctionality" finished-at="2025-09-02T07:03:32 MST" duration-ms="0" status="SKIP">
+          <exception class="org.openqa.selenium.NoSuchWindowException">
+            <message>
+              <![CDATA[no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=139.0.7258.155)
+Build info: version: '4.21.0', revision: '79ed462ef4'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '23.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [a14437ed68832e5dd7a4a36ddbb6794f, get {url=https://opensource-demo.orangehrmlive.com/}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 139.0.7258.155, chrome: {chromedriverVersion: 139.0.7258.154 (9e0d6b2b47f..., userDataDir: C:\Users\USER\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51420}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51420/devtoo..., se:cdpVersion: 139.0.7258.155, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: a14437ed68832e5dd7a4a36ddbb6794f]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=139.0.7258.155)
+Build info: version: '4.21.0', revision: '79ed462ef4'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '23.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [a14437ed68832e5dd7a4a36ddbb6794f, get {url=https://opensource-demo.orangehrmlive.com/}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 139.0.7258.155, chrome: {chromedriverVersion: 139.0.7258.154 (9e0d6b2b47f..., userDataDir: C:\Users\USER\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51420}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51420/devtoo..., se:cdpVersion: 139.0.7258.155, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: a14437ed68832e5dd7a4a36ddbb6794f
+at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)
+at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:518)
+at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:300)
+at common.BaseSetup.setUp(BaseSetup.java:94)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:358)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchWindowException -->
           <reporter-output>
-            <line>
-              <![CDATA[Entered Username in search field]]>
-            </line>
-            <line>
-              <![CDATA[Clicked on Search button]]>
-            </line>
           </reporter-output>
         </test-method> <!-- searchUserFunctionality -->
-        <test-method is-config="true" signature="captureScreenshot(org.testng.ITestResult)[pri:0, instance:tests.AdminTest2@49e5f737]" started-at="2025-08-31T15:44:08 MST" name="captureScreenshot" finished-at="2025-08-31T15:44:08 MST" duration-ms="2" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=searchUserFunctionality status=SUCCESS method=AdminTest2.searchUserFunctionality()[pri:2, instance:tests.AdminTest2@49e5f737] output=Entered Username in search field]]]>
-              </value>
-            </param>
-          </params>
+        <test-method is-config="true" signature="captureScreenshot(org.testng.ITestResult)[pri:0, instance:tests.AdminTest2@340b9973]" started-at="2025-09-02T07:03:32 MST" name="captureScreenshot" finished-at="2025-09-02T07:03:32 MST" duration-ms="0" status="SKIP">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- captureScreenshot -->
-        <test-method is-config="true" signature="bm(java.lang.reflect.Method)[pri:0, instance:tests.AdminTest2@49e5f737]" started-at="2025-08-31T15:44:08 MST" name="bm" finished-at="2025-08-31T15:44:08 MST" duration-ms="5" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void tests.AdminTest2.updateUserFunctionality() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
+        <test-method is-config="true" signature="bm(java.lang.reflect.Method)[pri:0, instance:tests.AdminTest2@340b9973]" started-at="2025-09-02T07:03:32 MST" name="bm" finished-at="2025-09-02T07:03:32 MST" duration-ms="0" status="SKIP">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- bm -->
-        <test-method signature="updateUserFunctionality()[pri:3, instance:tests.AdminTest2@49e5f737]" started-at="2025-08-31T15:44:08 MST" name="updateUserFunctionality" finished-at="2025-08-31T15:44:20 MST" duration-ms="12243" status="PASS">
+        <test-method signature="updateUserFunctionality()[pri:3, instance:tests.AdminTest2@340b9973]" started-at="2025-09-02T07:03:32 MST" name="updateUserFunctionality" finished-at="2025-09-02T07:03:32 MST" duration-ms="1" status="SKIP">
+          <exception class="org.openqa.selenium.NoSuchWindowException">
+            <message>
+              <![CDATA[no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=139.0.7258.155)
+Build info: version: '4.21.0', revision: '79ed462ef4'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '23.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [a14437ed68832e5dd7a4a36ddbb6794f, get {url=https://opensource-demo.orangehrmlive.com/}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 139.0.7258.155, chrome: {chromedriverVersion: 139.0.7258.154 (9e0d6b2b47f..., userDataDir: C:\Users\USER\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51420}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51420/devtoo..., se:cdpVersion: 139.0.7258.155, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: a14437ed68832e5dd7a4a36ddbb6794f]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=139.0.7258.155)
+Build info: version: '4.21.0', revision: '79ed462ef4'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '23.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [a14437ed68832e5dd7a4a36ddbb6794f, get {url=https://opensource-demo.orangehrmlive.com/}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 139.0.7258.155, chrome: {chromedriverVersion: 139.0.7258.154 (9e0d6b2b47f..., userDataDir: C:\Users\USER\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51420}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51420/devtoo..., se:cdpVersion: 139.0.7258.155, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: a14437ed68832e5dd7a4a36ddbb6794f
+at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)
+at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:518)
+at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:300)
+at common.BaseSetup.setUp(BaseSetup.java:94)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:358)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchWindowException -->
           <reporter-output>
-            <line>
-              <![CDATA[Clicked on Edit button]]>
-            </line>
-            <line>
-              <![CDATA[Updated Username to: UserubE9F]]>
-            </line>
-            <line>
-              <![CDATA[Clicked on Save button after update]]>
-            </line>
           </reporter-output>
         </test-method> <!-- updateUserFunctionality -->
-        <test-method is-config="true" signature="captureScreenshot(org.testng.ITestResult)[pri:0, instance:tests.AdminTest2@49e5f737]" started-at="2025-08-31T15:44:20 MST" name="captureScreenshot" finished-at="2025-08-31T15:44:20 MST" duration-ms="3" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=updateUserFunctionality status=SUCCESS method=AdminTest2.updateUserFunctionality()[pri:3, instance:tests.AdminTest2@49e5f737] output=Clicked on Edit button]]]>
-              </value>
-            </param>
-          </params>
+        <test-method is-config="true" signature="captureScreenshot(org.testng.ITestResult)[pri:0, instance:tests.AdminTest2@340b9973]" started-at="2025-09-02T07:03:32 MST" name="captureScreenshot" finished-at="2025-09-02T07:03:32 MST" duration-ms="0" status="SKIP">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- captureScreenshot -->
-        <test-method is-config="true" signature="close()[pri:0, instance:tests.AdminTest2@49e5f737]" started-at="2025-08-31T15:44:21 MST" name="close" finished-at="2025-08-31T15:44:27 MST" duration-ms="6081" status="PASS">
+        <test-method is-config="true" signature="close()[pri:0, instance:tests.AdminTest2@340b9973]" started-at="2025-09-02T07:03:33 MST" name="close" finished-at="2025-09-02T07:03:33 MST" duration-ms="0" status="SKIP">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- close -->

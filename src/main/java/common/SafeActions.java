@@ -9,7 +9,6 @@ import java.io.IOException;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
@@ -22,6 +21,8 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.ITestResult;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  * Utility class that provides safe wrappers for common Selenium actions.
@@ -31,12 +32,18 @@ public class SafeActions extends Sync {
 
     // Shared WebDriver instance
     static WebDriver driver;
-
+    WebDriverWait wait;
+    
+    private static final Logger logger = LogManager.getLogger(SafeActions.class);
+    
+    
     /**
      * Constructor initializes driver from BaseSetup.
      */
     public SafeActions() {
         this.driver = BaseSetup.driver;
+        new WebDriverWait(driver, Duration.ofSeconds(NOWAIT));
+        logger.info("SafeActions initialized with WebDriver");
     }
 
     /**
@@ -44,13 +51,17 @@ public class SafeActions extends Sync {
      * 
      * @param locator XPath locator of the element
      */
-    public void safeClick(String xpath) throws Exception {
-        safeClick(By.xpath(xpath));
-    }
-    public void safeClick(By locator) throws Exception {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(locator));
+ // main implementation (By based)
+    public void safeClick(By locator) {
+        WebElement element = waitForClickable(locator);
         element.click();
+        logger.info("Clicked on element: {}", locator);
+    }
+    
+
+    // Overload 2: Accepts String (XPath)
+    public void safeClick(String xpath) {
+        safeClick(By.xpath(xpath)); // calls By-based version, no recursion back
     }
     
     /**
@@ -60,13 +71,17 @@ public class SafeActions extends Sync {
      * @param text    Text to enter
      */
     public void safeType(By locator, String value) throws Exception {
+        logger.info("Typing '{}' into element: {}", value, locator);
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
         element.clear();
         element.sendKeys(value);
+        logger.info("Text entered successfully: {}", value);
+
     }
 
     public void safeType(String xpath, String value) throws Exception {
+        logger.info("Typing '{}' into element with xpath: {}", value, xpath);
         safeType(By.xpath(xpath), value);
     }
     
@@ -77,8 +92,53 @@ public class SafeActions extends Sync {
      * @return true if element is visible, false otherwise
      */
     public boolean safeIsDisplay(String locator) {
+        logger.info("Element with xpath '{}' displayed: {}", locator);
+
         return driver.findElement(By.xpath(locator)).isDisplayed();
     }
+
+    //.................................Assertion................................................//
+    
+ // Check element is displayed
+    public void assertElementDisplayed(String locator) {
+        logger.info("Asserting element is displayed: {}", locator);
+
+        Assert.assertTrue(driver.findElement(By.xpath(locator)).isDisplayed(),
+                "Element is not displayed: " + locator);
+        logger.info("Assertion passed for element display: {}", locator);
+
+    }
+
+    // Check element has expected text
+    public void assertElementText(String locator, String expectedText) {
+        String actual = driver.findElement(By.xpath(locator)).getText().trim();
+        logger.info("Asserting text for element '{}'. Expected: '{}', Actual: '{}'", locator, expectedText, actual);
+        Assert.assertEquals(actual, expectedText, 
+                "Text mismatch for element: " + locator);
+    }
+
+    // Check input field value
+    public void assertElementValue(String locator, String expectedValue) {
+        String actual = driver.findElement(By.xpath(locator)).getAttribute("value").trim();
+        logger.info("Asserting value for element '{}'. Expected: '{}', Actual: '{}'", locator, expectedValue, actual);
+        Assert.assertEquals(actual, expectedValue, 
+                "Input value mismatch for: " + locator);
+    }
+
+    // Check page title
+    public void assertPageTitle(String expectedTitle) {
+        String actual = driver.getTitle();
+        logger.info("Asserting page title. Expected: '{}', Actual: '{}'", expectedTitle, actual);
+        Assert.assertEquals(actual, expectedTitle, 
+                "Page title mismatch");
+    }
+    
+    
+    
+    
+    
+    
+    
 
     /**
      * Captures a screenshot for the given test result.
@@ -89,6 +149,7 @@ public class SafeActions extends Sync {
     
     public void captureScreenshot(ITestResult result) throws Exception {
         if (ITestResult.FAILURE == result.getStatus()) {
+        	logger.error("Test '{}' failed. Capturing screenshot...", result.getName());
             // Take screenshot
             TakesScreenshot ts = (TakesScreenshot) driver;
             File src = ts.getScreenshotAs(OutputType.FILE);
@@ -99,6 +160,7 @@ public class SafeActions extends Sync {
 
             // Save screenshot
             FileHandler.copy(src, new File(destPath));
+            logger.info("📸 Screenshot saved at: {}", destPath);
 
             System.out.println("📸 Screenshot saved at: " + destPath);
         }
@@ -111,6 +173,7 @@ public class SafeActions extends Sync {
      * @throws Exception if JavaScript execution fails
      */
     public void scrollUpDown(int pixel) throws Exception {
+        logger.info("Scrolling vertically by {} pixels", pixel);
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0," + pixel + ")");
         Thread.sleep(1000);
@@ -118,6 +181,7 @@ public class SafeActions extends Sync {
 
 
     public void safeClear(String xpath) {
+        logger.info("Clearing input field with xpath: {}", xpath);
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(NORMALWAIT));
         WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
         element.clear();
@@ -131,6 +195,7 @@ public class SafeActions extends Sync {
      * @param index           Index of the option to select
      */
     public void selectDropdownByIndex(WebElement dropdownElement, int index) {
+        logger.info("Selecting index '{}' from dropdown: {}", index, dropdownElement);
         Select select = new Select(dropdownElement);
         select.selectByIndex(index);
     }
@@ -143,6 +208,8 @@ public class SafeActions extends Sync {
      * @param message  Assertion message
      */
     public void assertTextEquals(WebElement element, String expected, String message) {
+        logger.info("Asserting element text. Expected: '{}', Actual: '{}'", expected, element.getText().trim());
+
         Assert.assertEquals(element.getText().trim(), expected, message);
     }
 

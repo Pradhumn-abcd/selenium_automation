@@ -39,6 +39,16 @@ public class Sync extends Constant {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(seconds));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(locator)));
     }
+    
+    public WebElement waitForClickable(By locator) {
+        return new WebDriverWait(driver, Duration.ofSeconds(NOWAIT))
+                .until(ExpectedConditions.elementToBeClickable(locator));
+    }
+
+    public WebElement waitForVisible(By locator) {
+        return new WebDriverWait(driver, Duration.ofSeconds(NOWAIT))
+                .until(ExpectedConditions.visibilityOfElementLocated(locator));
+    }
 
     /**
      * Fluent wait for element visibility (using String XPath locator)
