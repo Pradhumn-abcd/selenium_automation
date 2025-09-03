@@ -22,7 +22,7 @@ import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 
 import pages.LoginPage;
-
+import common.SafeActions;
 public class BaseSetup {
 
     // WebDriver instance (shared across all test classes)
@@ -34,6 +34,9 @@ public class BaseSetup {
     // ExtentTest instance for logging test steps
      static ExtentTest extentTest;
 
+     public static ExtentTest test;
+     
+     SafeActions safe = new SafeActions();
     /**
      * @BeforeSuite
      * Runs once before the entire test suite starts.
@@ -132,7 +135,7 @@ public class BaseSetup {
     	if (result.getStatus()==ITestResult.FAILURE)
     	{
     		System.out.println("Test Failed:" + result.getName());
-    		captureScreenshot(result);
+    		
     	}
     	else if (result.getStatus()==ITestResult.SKIP)
     	{
@@ -145,7 +148,9 @@ public class BaseSetup {
     	
     }
 
-    /**
+   
+
+	/**
      * @BeforeTest
      * Handles application login using credentials from config.
      */
@@ -165,9 +170,9 @@ public class BaseSetup {
      */
     @AfterSuite
     public void close() {
-        if (driver != null) {
+        
             driver.quit();
-        }
+        
         {
             extentReports.flush();
         }

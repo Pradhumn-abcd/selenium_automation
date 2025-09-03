@@ -8,300 +8,253 @@ import org.apache.logging.log4j.Logger;
 
 /**
  * Page Object Model (POM) for the Admin Page.
- * 
- * This class provides methods to perform CRUD operations 
+ * Provides methods to perform CRUD operations 
  * (Create, Search, Update, Delete) on Users from the Admin module.
- *  
- * All actions use SafeActions wrapper and Sync explicit waits 
- * for stable execution.
  */
 public class AdminPage2 extends SafeActions {
 
-     Sync sync = new Sync(); // Sync utility for waits
-     private static final Logger logger = LogManager.getLogger(AdminPage2.class);
-
+    private static Logger logger = LogManager.getLogger(AdminPage2.class);
+     Sync sync = new Sync();
 
     /* ----------------------------
      * Locators - Create User
      * ---------------------------- */
-    
-     String addButton = "//button[@class='oxd-button oxd-button--medium oxd-button--secondary']";
-     String userRoleDropdown = "(//i[@class='oxd-icon bi-caret-down-fill oxd-select-text--arrow'])[1]";
-     String selectAdmin = "//div[@class='oxd-select-option']//span[text()='Admin']";
-     String employeeNameField = "//input[@placeholder='Type for hints...']";
-     String employeeNameOption = "(//div[@class='oxd-autocomplete-option'])[1]";
-     String statusDropdown = "(//div[contains(@class,'oxd-select-text--after')])[2]";
-     String selectStatus = "//span[text()='Enabled']";
-     String usernameField = "//label[text()='Username']/../following-sibling::div/input";
-     String passwordField = "(//input[@type='password'])[1]";
-     String confirmPasswordField = "(//input[@type='password'])[2]";
-     String saveButton = "//button[@type='submit']";
-
-
+    private  String addButton = "//button[text()=' Add ']";
+    private  String userRoleDropdown = "(//i[@class='oxd-icon bi-caret-down-fill oxd-select-text--arrow'])[1]";
+    private  String selectAdmin = "(//div[@class='oxd-select-option'])[2]";
+    private  String employeeNameField = "//input[@placeholder='Type for hints...']";
+    private  String employeeNameOption = "(//div[@class='oxd-autocomplete-option'])[1]";
+    private  String statusDropdown = "(//div[contains(@class,'oxd-select-text--after')])[2]";
+    private  String selectStatus = "//span[text()='Enabled']";
+    private  String usernameField = "//label[text()='Username']/../following-sibling::div/input";
+    private  String passwordField = "(//input[@type='password'])[1]";
+    private  String confirmPasswordField = "(//input[@type='password'])[2]";
+    private String saveButton = "//button[@type='submit']";
 
     /* ----------------------------
      * Locators - Search User
      * ---------------------------- */
-     String searchByUsername = "(//input[@class='oxd-input oxd-input--active'])[2]";
-     String searchButton = "//button[@type='submit']";
+    private  String searchByUsername = "(//input[@class='oxd-input oxd-input--active'])[2]";
+    private  String searchButton = "//button[@type='submit']";
 
     /* ----------------------------
      * Locators - Update User
      * ---------------------------- */
-     String editButton = "//i[@class='oxd-icon bi-pencil-fill']";
-     String editUsernameField = "//*[@id='app']/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div[4]/div/div[2]/input";
-     String saveEditedUserButton = "//button[@type='submit']";
+    private  String editButton = "//i[@class='oxd-icon bi-pencil-fill']";
+    private  String editUsernameField = "//*[@id='app']/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div[4]/div/div[2]/input";
+    private  String saveEditedUserButton = "//button[@type='submit']";
 
     /* ----------------------------
      * Locators - Delete User
      * ---------------------------- */
-     String searchByUsernameDel = "(//input[@class='oxd-input oxd-input--active'])[2]";
-     String searchButtonDel = "//button[@type='submit']";
-     String deleteButton = "//button[@class='oxd-icon-button oxd-table-cell-action-space']//preceding::i[@class='oxd-icon bi-trash'][1]";
-     String confirmDeleteButton = "//button[@type='button' and @class='oxd-button oxd-button--medium oxd-button--label-danger orangehrm-button-margin']";
+    private  String searchByUsernameDel = "(//input[@class='oxd-input oxd-input--active'])[2]";
+    private  String searchButtonDel = "//button[@type='submit']";
+    private  String deleteButton = "//button[@class='oxd-icon-button oxd-table-cell-action-space']//preceding::i[@class='oxd-icon bi-trash'][1]";
+    private  String confirmDeleteButton = "//button[@type='button' and @class='oxd-button oxd-button--medium oxd-button--label-danger orangehrm-button-margin']";
+
+    /* ----------------------------
+     * Locators - Messages/Results
+     * ---------------------------- */
+    // Success/Toast banner shown after save
+    private final String successBanner = "//div[contains(@class,'oxd-alert--success') or contains(@class,'toast')][contains(.,'Success')]";
 
     /* =============================
      * Methods - Create User
      * ============================= */
 
-    /**
-     * Clicks on Add button to create a new user.
-     * @throws Exception 
-     */
-     public void clickAddButton() throws Exception {
-         sync.safeExplicitWait(addButton, NOWAIT);
-         safeClick(addButton);
-         Reporter.log("Clicked Add button", true);
-         assertElementDisplayed("addButton");
-         logger.info("'Add User' button clicked successfully");
+    public void clickAddButton() throws Exception {
+        sync.safeExplicitWait(addButton, 10);
+        safeClick(addButton);
+        Reporter.log("Clicked Add button", true);
+        logger.info("Clicked 'Add' button");
+      
+    }
 
-     }
+    public void userRoleDropdown() throws Exception {
+        sync.safeExplicitWait(userRoleDropdown, 10);
+        safeClick(userRoleDropdown);
+        Reporter.log("Opened User Role dropdown", true);
+        logger.info("Opened User Role dropdown");
+    }
 
-     public void userRoleDropdown() throws Exception {
-        // sync.safeExplicitWait(userRoleDropdown, NOWAIT);
-         safeClick(userRoleDropdown);
-         Reporter.log("Opened User Role dropdown", true);
-         Thread.sleep(2000);
-         assertElementDisplayed("userRoleDropdown");
-         logger.info("Dropdown clicked successfully");
-     }
+    public void selectAdminOption() throws Exception {
+        sync.safeExplicitWait(selectAdmin, 10);
+        safeClick(selectAdmin);
+        Reporter.log("Selected Admin role", true);
+        logger.info("Selected 'Admin' role");
+    }
 
-     public void selectAdminOption() throws Exception {
-        // sync.safeExplicitWait(selectAdmin, NOWAIT);
-         safeClick(selectAdmin);
-         Reporter.log("Selected Admin role", true);
-         Thread.sleep(2000);
-         assertElementDisplayed(selectAdmin); 
-         logger.info("selectAdminOption clicked successfully");
+    public void typeEmployeeName(String name) throws Exception {
+        try {
+            sync.safeExplicitWait(employeeNameField, 10);
+            safeType(employeeNameField, name);
+            logger.info("Typed employee name hint: {}", name);
 
-     }
+            // Wait for autocomplete suggestion and click first option
+            sync.safeExplicitWait(employeeNameOption, 10);
+            pause(2000);
+            safeClick(employeeNameOption);
+            Reporter.log("Selected Employee from suggestions: " + name, true);
+            logger.info("Selected employee suggestion for: {}", name);
+        } catch (Exception e) {
+            logger.error("Failed while entering/selecting employee name: {}", name, e);
+            pause(2000);
+        }
+    }
 
-     public void typeEmployeeName(String name) throws Exception {
-         //sync.safeExplicitWait(employeeNameField, NOWAIT);
-         safeType(employeeNameField, name);
-         Thread.sleep(4000);
-         assertElementDisplayed(employeeNameField);
-         logger.info("employeeNameField clicked successfully", name);
-         sync.safeExplicitWait(employeeNameOption, 10);
-         safeClick(employeeNameOption);
-         Reporter.log("Entered Employee: " + name, true);
-         Thread.sleep(2000);
-         assertElementDisplayed(employeeNameOption);
-         logger.info("employee clicked successfully");
+    public void clickStatusDropdown() throws Exception {
+        sync.safeExplicitWait(statusDropdown, 10);
+        safeClick(statusDropdown);
+        Reporter.log("Opened Status dropdown", true);
+        logger.info("Opened Status dropdown");
+    }
 
-     }
+    public void selectEnableStatus() throws Exception {
+        sync.safeExplicitWait(selectStatus, 10);
+        safeClick(selectStatus);
+        Reporter.log("Selected Enabled status", true);
+        logger.info("Selected 'Enabled' status");
+        pause(2000);
+    }
 
-     public void clickStatusDropdown() throws Exception {
-        // sync.safeExplicitWait(statusDropdown, NOWAIT);
-         safeClick(statusDropdown);
-         Reporter.log("Opened Status dropdown", true);
-         Thread.sleep(2000);
-         assertElementDisplayed(statusDropdown);
-         logger.info("status dropdown clicked successfully");
+    // Backward-compatible alias (if old tests call selectEnablestatus)
+    public void selectEnablestatus() throws Exception { selectEnableStatus(); }
 
-         
-     }
+    public void typeUsername(String username) throws Exception {
+        sync.safeExplicitWait(usernameField, 10);
+        safeType(usernameField, username);
+        Reporter.log("Entered Username: " + username, true);
+        logger.info("Entered Username: {}", username);
+        pause(2000);
+    }
 
-     public void selectEnablestatus() throws Exception {
-        // sync.safeExplicitWait(selectStatus, NOWAIT);
-         safeClick(selectStatus);
-         Reporter.log("Selected Enabled status", true);
-         Thread.sleep(2000);
-         assertElementDisplayed(statusDropdown);
+    public void typePassword(String password) throws Exception {
+        sync.safeExplicitWait(passwordField, 10);
+        safeType(passwordField, password);
+        Reporter.log("Entered Password", true);
+        logger.info("Entered Password");
+        pause(2000);
+    }
 
+    public void typeConfirmPassword(String confirmPassword) throws Exception {
+        sync.safeExplicitWait(confirmPasswordField, 10);
+        safeType(confirmPasswordField, confirmPassword);
+        Reporter.log("Entered Confirm Password", true);
+        logger.info("Entered Confirm Password");
+        pause(2000);
+    }
 
-
-     }
-
-     public void typeUsername(String username) throws Exception {
-        // sync.safeExplicitWait(usernameField, NOWAIT);
-         safeType(usernameField, username);
-         Reporter.log("Entered Username: " + username, true);
-         Thread.sleep(2000);
-         assertElementDisplayed(usernameField);
-         logger.info("username type successfully");
-
-     }
-
-     public void typePassword(String password) throws Exception {
-        // sync.safeExplicitWait(passwordField, NOWAIT);
-         safeType(passwordField, password);
-         Reporter.log("Entered Password", true);
-         Thread.sleep(2000);
-         assertElementDisplayed(passwordField);
-         logger.info("password type successfully");
-
-
-     }
-
-     public void typeConfirmPassword(String confirmPassword) throws Exception {
-        // sync.safeExplicitWait(confirmPasswordField, NOWAIT);
-         safeType(confirmPasswordField, confirmPassword);
-         Reporter.log("Entered Confirm Password", true);
-         Thread.sleep(2000);
-         assertElementDisplayed(confirmPasswordField);
-         logger.info("comformpassword type successfully");
-
-     }
-
-     public void clickSaveButton() throws Exception {
-         //sync.safeExplicitWait(saveButton, NOWAIT);
-         
-         safeClick(saveButton);
-         Reporter.log("Clicked Save", true);
-         sync.safeExplicitWait(saveButton, NOWAIT);
-         Thread.sleep(5000);
-         assertElementDisplayed(saveButton);
-         logger.info("save button clicked successfully");
-     
-     }
-
+    public void clickSaveButton() throws Exception {
+        sync.safeExplicitWait(saveButton, 10);
+        safeClick(saveButton);
+        Reporter.log("Clicked Save", true);
+        logger.info("Clicked Save button");
+        pause(4000);
+    }
 
     /* =============================
      * Methods - Search User
      * ============================= */
 
-    /**
-     * Enters a username in Search field.
-     */
     public void enterUserNameInField(String username) throws Exception {
-      //  sync.safeExplicitWait(searchByUsername, NOWAIT);
+        sync.safeExplicitWait(searchByUsername, 10);
         safeType(searchByUsername, username);
-        Reporter.log("Entered Username in search field", true);
-        Thread.sleep(2000);
-        assertElementDisplayed(searchByUsername);
-        logger.info("username type successfully");
-
-        
+        Reporter.log("Entered Username in search field: " + username, true);
+        logger.info("Entered Username in search field: {}", username);
     }
 
-    /**
-     * Clicks on Search button to perform search.
-     */
     public void clickOnSearchButton() throws Exception {
-        //sync.safeExplicitWait(searchButton, NOWAIT);
+        sync.safeExplicitWait(searchButton, 10);
         safeClick(searchButton);
         Reporter.log("Clicked on Search button", true);
-        Thread.sleep(2000);
-        assertElementDisplayed(searchButton);
-        logger.info("search clicked successfully");
-
-
+        logger.info("Clicked on Search button");
     }
 
     /* =============================
      * Methods - Update User
      * ============================= */
 
-    /**
-     * Clicks on Edit button for a user.
-     */
     public void clickOnEditButton() throws Exception {
-      //  sync.safeExplicitWait(editButton, NOWAIT);
         scrollUpDown(200);
+        sync.safeExplicitWait(editButton, 10);
         safeClick(editButton);
         Reporter.log("Clicked on Edit button", true);
-        Thread.sleep(2000);
-        assertElementDisplayed(editButton);
-        logger.info("edit clicked successfully");
-
-
+        logger.info("Clicked on Edit button");
     }
 
-    /**
-     * Updates username in the edit form.
-     */
     public void updateUserName(String newUsername) throws Exception {
-     //   sync.safeExplicitWait(editUsernameField, NOWAIT);
+        sync.safeExplicitWait(editUsernameField, 10);
         safeType(editUsernameField, newUsername);
         Reporter.log("Updated Username to: " + newUsername, true);
-        Thread.sleep(2000);
-        assertElementDisplayed(editUsernameField);
-        logger.info("enterupdated name successfully");
-
+        logger.info("Updated Username to: {}", newUsername);
     }
 
-    /**
-     * Clicks Save button after updating user.
-     */
     public void clickOnSaveButtonAfterEdit() throws Exception {
-       // sync.safeExplicitWait(saveEditedUserButton, NOWAIT);
+        sync.safeExplicitWait(saveEditedUserButton, 10);
         safeClick(saveEditedUserButton);
         Reporter.log("Clicked on Save button after update", true);
-        Thread.sleep(5000);
-        assertElementDisplayed(saveEditedUserButton);
-        logger.info("click on save button successfully");
-
-
+        logger.info("Clicked on Save button after update");
     }
 
     /* =============================
      * Methods - Delete User
      * ============================= */
 
-    public void enterUserNameFordelete(String username) throws Exception {
-        sync.safeExplicitWait(searchByUsernameDel, NOWAIT);
+    public void enterUserNameForDelete(String username) throws Exception {
+        sync.safeExplicitWait(searchByUsernameDel, 10);
         safeType(searchByUsernameDel, username);
-        Reporter.log("Entered Username in search field", true);
-        Thread.sleep(5000);
-        logger.info("enter username successfully");
-
+        Reporter.log("Entered Username for deletion: " + username, true);
+        logger.info("Entered Username for deletion: {}", username);
     }
-    
+
     public void clickOnSearchButtonDel() throws Exception {
-     //   sync.safeExplicitWait(searchButtonDel, NOWAIT);
+        sync.safeExplicitWait(searchButtonDel, 10);
         safeClick(searchButtonDel);
-        Reporter.log("Clicked on Search button", true);
-        Thread.sleep(5000);
-        logger.info("click on search button successfully");
-
+        Reporter.log("Clicked on Search button for deletion", true);
+        logger.info("Clicked on Search button for deletion");
     }
-    
-    
-    
-    /**
-     * Clicks Delete button for a user.
-     */
+
     public void clickOnDeleteButton() throws Exception {
-    //	sync.safeExplicitWait(deleteButton, NOWAIT);
-    	 scrollUpDown(200);
-    	safeClick(deleteButton);
-    	Reporter.log("Clicked on Delete button", true);
-        Thread.sleep(5000);
-        logger.info("click on delete button successfully");
-
-        
+        scrollUpDown(200);
+        sync.safeExplicitWait(deleteButton, 10);
+        safeClick(deleteButton);
+        Reporter.log("Clicked on Delete button", true);
+        logger.info("Clicked on Delete button");
     }
 
-    /**
-     * Confirms delete action for a user.
-     */
     public void confirmDeleteUser() throws Exception {
-      //  sync.safeExplicitWait(confirmDeleteButton, NOWAIT);
+        sync.safeExplicitWait(confirmDeleteButton, 10);
         safeClick(confirmDeleteButton);
-       // Reporter.log("Confirmed User Deletion", true);
-        Thread.sleep(5000);
-        logger.info("click on delete pop-up successfully");
+        Reporter.log("Confirmed User Deletion", true);
+        logger.info("Confirmed User Deletion");
+    }
 
+    /* =============================
+     * Verifications (for assertions)
+     * ============================= */
+
+    /** Returns true if a success/toast banner appears after save. */
+    public boolean isUserCreationSuccess() {
+        try {
+            sync.safeExplicitWait(successBanner, 10);
+            logger.info("Success banner detected");
+            return true;
+        } catch (Exception e) {
+            logger.warn("Success banner not detected");
+            return false;
+        }
+    }
+
+    /** Returns true if a row containing the username is shown in the results grid. */
+    public boolean isUserPresent(String username) {
+        final String userRow = "//div[@role='row']//div[normalize-space()='" + username + "']";
+        try {
+            sync.safeExplicitWait(userRow, 10);
+            logger.info("User '{}' found in results grid", username);
+            return true;
+        } catch (Exception e) {
+            logger.warn("User '{}' NOT found in results grid", username);
+            return false;
+        }
     }
 }

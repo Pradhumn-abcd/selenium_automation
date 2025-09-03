@@ -6,10 +6,10 @@
       <class name="tests.AdminTest2">
         <methods>
           <include name="bm"/>
-          <include name="close"/>
+          <include name="initPages"/>
           <include name="createAdminUser"/>
+          <include name="close"/>
           <include name="setUp"/>
-          <include name="updateUserFunctionality"/>
           <include name="searchUserFunctionality"/>
           <include name="setUpLogin"/>
           <include name="captureScreenshot"/>
